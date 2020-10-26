@@ -23,7 +23,9 @@ import HeaderBar from '../../components/HeaderBar';
 import bookImage from '../../images/book.jpg';
 import girlImage from '../../images/girl.jpg';
 
-export function FirstScreen({history}) {
+import {storyHome} from './actions';
+
+export function FirstScreen({history, onStoryHome}) {
   useInjectReducer({ key: 'firstScreen', reducer });
   useInjectSaga({ key: 'firstScreen', saga });
 
@@ -46,7 +48,15 @@ export function FirstScreen({history}) {
   };
 
   const goTo = () => {
+    onSubmit();
     history.push('/story_screen')
+  }
+
+  const onSubmit = () => {
+    onStoryHome({
+      heros: state.heros,
+      secondText: state.secondText,
+    })
   }
 
   return (
@@ -106,6 +116,9 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
+    onStoryHome: story => {
+      dispatch(storyHome(story));
+    },
   };
 }
 
