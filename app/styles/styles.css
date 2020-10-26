@@ -1,0 +1,89 @@
+.firstScreenImageDiv {
+    background-image: url('../images//book.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerBar {
+    padding: 2rem 0rem 2rem 1rem;
+    /* background-color: #445873; */
+    background-color: black !important;
+    color: white;
+    min-height: 14vh !important;
+}
+
+.formDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+}
+
+.fsMiddleFormDiv {
+    width: 40%;
+    height: 50vh;
+    background-color: #71e1f0;
+    border-radius: 1rem;
+    padding: 3rem;
+}
+
+.mainTopic {
+    font-size: 4rem;
+    letter-spacing: 3px;
+    line-height: 3rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-shadow: #474747 3px 5px 2px;
+}
+
+.submitButton {
+    margin-top: 2rem !important;
+    width: 10rem;
+    background-color: #f5d15b !important;
+    color: #ffff !important;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.submitButton:hover {
+    background-color: #b89629 !important;
+}
+
+.headerLink {
+    text-align: center;
+}
+
+.headerLink:hover {
+background-color: #71e1f0;
+padding: 0.2rem;
+color: black;
+border-radius: 5px;
+font-weight: bold;
+cursor: pointer;
+}
+
+div.storyScreenMainDiv {
+    background-image: url('../images//book.jpg') !important;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(15px) !important;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 5rem;
+}
+
+div.middleStoryDiv {
+    width: 80%;
+    background-color: cadetblue;
+    border-radius: 1rem;
+    min-height: 50vh;
+    background: rgba(25, 25, 25, .7) ;
+    color: white;
+    padding: 2rem;
+}
