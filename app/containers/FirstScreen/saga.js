@@ -31,7 +31,7 @@ export function* firstScreenFunctionSaga(action) {
     const result = yield call(request, requestURL, options);
     console.log(result);
     if (result.error == undefined) {
-      yield put(push('/story_screen'));
+      yield put(push('/story_screen/'+result));
       yield put(storyHomeSuccess());
     } else {
       yield put(storyHomeError(result.error));

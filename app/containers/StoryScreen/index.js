@@ -20,14 +20,16 @@ import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 
-export function StoryScreen() {
+export function StoryScreen({match}) {
   useInjectReducer({ key: 'storyScreen', reducer });
   useInjectSaga({ key: 'storyScreen', saga });
+
+  const result = match.params.result;
 
   return (
     <div className="storyScreenMainDiv">
       <div className="middleStoryDiv">
-Example......
+{result}
       </div>
     </div>
   );

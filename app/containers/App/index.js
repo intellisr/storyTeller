@@ -33,7 +33,7 @@ export default function App() {
   return (
       <Switch>
         <Route exact path="/" component={FirstScreen} />
-        <Route exact path="/story_screen" component={StoryScreen} />
+        <Route exact path="/story_screen/:result" component={StoryScreen} />
         <Route path="/features" component={FeaturePage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
