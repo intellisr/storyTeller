@@ -1,5 +1,6 @@
 {
   "name": "react-boilerplate",
+  "proxy": "http://localhost:5000",
   "version": "4.0.0",
   "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
   "repository": {
