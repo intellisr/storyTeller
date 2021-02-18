@@ -22,10 +22,10 @@ import messages from './messages';
 import HeaderBar from '../../components/HeaderBar';
 import bookImage from '../../images/book.jpg';
 import girlImage from '../../images/girl.jpg';
+import { storyHome, storyHomeRespond } from './actions';
 
-import {storyHome} from './actions';
-
-export function FirstScreen({history, onStoryHome}) {
+// SRA add respondData array to parameter
+export function FirstScreen({ history, onStoryHome, respondData }) {
   useInjectReducer({ key: 'firstScreen', reducer });
   useInjectSaga({ key: 'firstScreen', saga });
 
@@ -33,7 +33,7 @@ export function FirstScreen({history, onStoryHome}) {
     { key: 'Batman', text: 'Batman', value: 'Batman' },
     { key: 'WonderWoman', text: 'Wonder Woman', value: 'WonderWoman' },
     { key: 'Hulk', text: 'Hulk', value: 'Hulk' },
-  ]
+  ];
 
   const [state, setState] = useState({
     heros: '',
@@ -49,15 +49,14 @@ export function FirstScreen({history, onStoryHome}) {
 
   const goTo = () => {
     onSubmit();
-    history.push('/story_screen')
-  }
+  };
 
   const onSubmit = () => {
     onStoryHome({
       heros: state.heros,
       secondText: state.secondText,
-    })
-  }
+    });
+  };
 
   return (
     <div>
@@ -67,8 +66,11 @@ export function FirstScreen({history, onStoryHome}) {
         <HeaderBar />
       </div>
       <div className="firstScreenImageDiv">
-        <text className="mainTopic"> LOREM <br /> <br />
-         IPSUM </text>
+        <text className="mainTopic">
+          {' '}
+          LOREM <br /> <br />
+          IPSUM{' '}
+        </text>
       </div>
       <div className="formDiv">
         <div className="fsMiddleFormDiv">
@@ -76,9 +78,9 @@ export function FirstScreen({history, onStoryHome}) {
             <Form.Field>
               <Form.Select
                 fluid
-                label='Heros'
+                label="Heros"
                 options={options}
-                placeholder='Heros'
+                placeholder="Heros"
                 name="heros"
                 id="heros"
                 value={state.heros}
@@ -97,7 +99,10 @@ export function FirstScreen({history, onStoryHome}) {
                 onChange={handleChange}
               />
             </Form.Field>
-            <Button className="submitButton" type='submit' onClick={goTo}>SUBMIT</Button>
+            <label>{respondData.id}</label>
+            <Button className="submitButton" type="submit" onClick={goTo}>
+              SUBMIT
+            </Button>
           </Form>
         </div>
       </div>
@@ -109,8 +114,10 @@ FirstScreen.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = createStructuredSelector({
+const mapStateToProps = state => ({
   firstScreen: makeSelectFirstScreen(),
+  // add resultData(reducer) to respondData(parameter)
+  respondData: state.firstScreenReducer.resultData,
 });
 
 function mapDispatchToProps(dispatch) {

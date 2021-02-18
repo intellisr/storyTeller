@@ -4,7 +4,13 @@
  *
  */
 
-import { DEFAULT_ACTION, STORY_HOME, STORY_HOME_SUCCESS, STORY_HOME_ERROR } from './constants';
+import {
+  DEFAULT_ACTION,
+  STORY_HOME,
+  STORY_HOME_SUCCESS,
+  STORY_HOME_ERROR,
+  STORY_HOME_RESPOND,
+} from './constants';
 
 export function defaultAction() {
   return {
@@ -15,6 +21,13 @@ export function defaultAction() {
 export function storyHome(payload) {
   return {
     type: STORY_HOME,
+    payload,
+  };
+}
+
+export function storyHomeRespond(payload) {
+  return {
+    type: STORY_HOME_RESPOND,
     payload,
   };
 }
